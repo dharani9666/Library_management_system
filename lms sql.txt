@@ -1,0 +1,55 @@
+ create table member(memberid number(25) primary key,
+                     firstname varchar(50) not null,
+                     lastname varchar(50) not null,
+                     emailid varchar(30),
+                     phoneno number(10) not null);
+
+
+ INSERT ALL
+     INTO member VALUES (10, 'Dharani', 'Vasty', 'dharani.va@gmail.com', '4587965432')
+     INTO member VALUES (11, 'Swapna', 'Trirugani', 'swapnatri@gmail.com', '7894561238')
+     INTO member VALUES (12, 'Vasavi', 'Chintala', 'vasavi@gmail.com', '1234567894')
+     INTO member VALUES (13, 'Sruthi', 'Kolij', 'sruthikolij2gmail.com', '5557771245')
+     INTO member VALUES (14, 'Grace', 'Jones', 'gracejones@gmail.com', '2221457816')
+     INTO member VALUES (15, 'Daniel', 'Wilson', 'danielw@gmail.com', '8882225349')
+     INTO member VALUES (16, 'Sophie', 'Mrudiya', 'sophiem@gmail.com', '4567891235')
+     INTO member VALUES (17, 'Vijay', 'Sharma', 'sharmavijay@gmail.com', '9876543215')
+     INTO member VALUES (18, 'James', 'Wilson', 'jamesw@gmail.com', '1472589639')
+     INTO member VALUES (19, 'Martin', 'William', 'martin@gmail.com', '7771452499')
+     INTO member VALUES (20, 'Allen', 'Mascow', 'allienmas@gmail.com', '1425142541')
+     INTO member VALUES (21, 'Daniel', 'Wilson', 'danielw@gmail.com', '5432154321') 
+ SELECT * FROM dual;
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE Lib_books (
+    bookid INT PRIMARY KEY,
+    title VARCHAR(500) NOT NULL,
+    author VARCHAR(300) NOT NULL,
+    price DECIMAL(25,2) NOT NULL  
+);
+
+INSERT ALL
+    INTO Lib_books  VALUES (110, 'Harry Potter and the Sorcerer''s Stone', 'J.K. Rowling', 11.49)
+    INTO Lib_books  VALUES (111, 'The Golden Years', 'Ruskin Bond', 15.99)
+    INTO Lib_books  VALUES (112, 'Monsoon', 'Sahitya Akademi', 20.00)
+    INTO Lib_books  VALUES (113, '40 Years with Abdul Kalam-Untold Stories', 'Dr. A. Sivathanu Pillai', 25.50)
+    INTO Lib_books  VALUES (114, 'The Christmas Pig', 'JK Rowling', 18.75)
+    INTO Lib_books  VALUES (115, 'The Living Mountain: A Fable for Our Times', 'Amitav Ghosh', 22.00)
+    INTO Lib_books  VALUES (116, '1232km: The Long Journey Homes', 'Vinod Kapri', 19.95)
+    INTO Lib_books  VALUES (117, 'Home in the World', 'Amartya Sen', 20.99)
+    INTO Lib_books  VALUES (118, '400 Days', 'Chetan Bhagat', 21.99)
+    INTO Lib_books  VALUES (119, 'The Battle of Belonging', 'Shashi Tharoor', 23.50)
+    INTO Lib_books  VALUES (120, 'A Song of India', 'Ruskin Bond', 14.99)
+SELECT * FROM dual;
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+create table borrowings( borrowingid int primary key,
+    			 memberid number(25) not null,
+			 bookid int not null,
+			 issuedate date,
+			 returndate date,
+			 foreign key (memberid) references member(memberid),
+		         foreign key(bookid) references Lib_books(bookid));
+
+
+
